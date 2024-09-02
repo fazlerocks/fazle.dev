@@ -17,8 +17,8 @@ export const FirstPostPreview = ({ title, date, slug, commentCount, brief }: Pro
 	const postURL = `/${slug}`;
 
 	return (
-		<article className="ne-50 grid grid-cols-2 items-center gap-10 rounded-lg bg-white p-12 shadow transition-colors duration-100 dark:bg-stone-800">
-			<div className="col-span-1 flex flex-col gap-2">
+		<article className="grid grid-cols-2 items-center gap-5 rounded-lg bg-white p-5 shadow transition-colors duration-100 dark:bg-stone-800 md:gap-10 md:p-12">
+			<div className="col-span-full flex flex-col gap-2 md:col-span-1">
 				<h2 className="text-2xl font-semibold text-stone-950 dark:text-stone-50">
 					<Link href={postURL}>{title}</Link>
 				</h2>
@@ -34,7 +34,7 @@ export const FirstPostPreview = ({ title, date, slug, commentCount, brief }: Pro
 					)}
 				</p>
 			</div>
-			<div className="col-span-1 flex flex-col gap-2">
+			<div className="col-span-full flex flex-col gap-2 md:col-span-1">
 				<Link href={postURL} className="text-base leading-snug text-stone-600 dark:text-stone-400">
 					{brief}
 				</Link>

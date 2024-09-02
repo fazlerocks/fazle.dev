@@ -14,7 +14,7 @@ const isNavbarItemWithUrl = (item: PublicationNavbarItem): item is NavbarItemWit
 
 const NavItem = ({ item }: { item: NavbarItemWithUrl }) => (
 	<li key={item.url}>
-		<a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+		<a href={item.url} target="_blank" rel="noopener noreferrer" className="">
 			{item.label}
 		</a>
 	</li>
@@ -55,7 +55,7 @@ const NavList = ({ items }: { items: NavbarItemWithUrl[] }) => {
 	const hiddenItems = items.slice(2);
 
 	return (
-		<ul className="flex list-none flex-row items-center gap-4 text-xs font-semibold uppercase tracking-tight text-neutral-600 dark:text-neutral-300">
+		<ul className="">
 			{visibleItems.map((item) => (
 				<NavItem key={item.url} item={item} />
 			))}
@@ -95,36 +95,37 @@ export const PersonalHeader = () => {
 								<span className="text-xl font-semibold text-stone-950 dark:text-stone-50">
 									{publication.title}
 								</span>
-								<span className="font-sans font-normal text-stone-600 dark:text-stone-400">
+								<span className="font-sans text-sm font-normal text-stone-600 dark:text-stone-400">
 									Co-founder, Hashnode &middot; Web experience architect
 								</span>
 							</div>
 						</Link>
 					</h1>
-					<ToggleTheme className="md:hidden" />
 				</div>
 			</div>
-			<div className="col-span-full flex flex-row items-center justify-between gap-4 text-stone-600 dark:text-stone-400 md:col-span-1 md:justify-end">
-				{/* <nav>
+			<div className="col-span-full flex flex-row items-center justify-center gap-10 border-y border-stone-200 py-5 text-stone-600 dark:border-stone-800 dark:text-stone-400 md:col-span-1 md:justify-end md:border-y-0 md:py-0">
+				<nav>
 					<NavList items={navbarItems} />
-				</nav> */}
-				<Link
-					href="https://x.com/fazlerocks"
-					aria-label="Follow on X"
-					target="_Blank"
-					rel="noopenner"
-				>
-					<XSVG className="h-6 w-6 stroke-current" />
-				</Link>
-				<Link
-					href="https://linkedin.com/fazlerocks"
-					aria-label="Follow on Linkedin"
-					target="_Blank"
-					rel="noopenner"
-				>
-					<LinkedinSVG className="h-6 w-6 stroke-current" />
-				</Link>
-				<ToggleTheme className="hidden md:block" />
+				</nav>
+				<div className="flex flex-row items-center gap-4">
+					<Link
+						href="https://x.com/fazlerocks"
+						aria-label="Follow on X"
+						target="_Blank"
+						rel="noopenner"
+					>
+						<XSVG className="h-6 w-6 stroke-current" />
+					</Link>
+					<Link
+						href="https://linkedin.com/fazlerocks"
+						aria-label="Follow on Linkedin"
+						target="_Blank"
+						rel="noopenner"
+					>
+						<LinkedinSVG className="h-6 w-6 stroke-current" />
+					</Link>
+					<ToggleTheme />
+				</div>
 			</div>
 		</header>
 	);
