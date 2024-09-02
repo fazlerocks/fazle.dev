@@ -74,21 +74,21 @@ export const PersonalHeader = () => {
 				<div className="flex justify-between">
 					<h1>
 						<Link
-							className="flex flex-row items-center gap-4"
+							className="flex flex-row items-center gap-3"
 							href="/"
 							aria-label={`${publication.author.name}'s blog home page`}
 						>
 							{publication.author.profilePicture && (
 								<Image
-									className="rounded-full grayscale hover:grayscale-0 dark:border-stone-300"
+									className="rounded-full dark:border-stone-300"
 									alt={publication.author.name}
 									src={resizeImage(publication.author.profilePicture, {
 										w: 128,
 										h: 128,
 										c: 'face',
 									})}
-									width={56}
-									height={56}
+									width={46}
+									height={46}
 								/>
 							)}
 							<div className="flex flex-col leading-snug">

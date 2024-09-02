@@ -1,4 +1,5 @@
 import { PostFragment } from '../generated/graphql';
+import { FirstPostPreview } from './first-post-preview';
 import { MinimalPostPreview } from './minimal-post-preview';
 
 type Props = {
@@ -8,8 +9,19 @@ type Props = {
 
 export const MinimalPosts = ({ posts }: Props) => {
 	return (
-		<section className="flex w-full flex-col items-stretch gap-10 lg:max-w-lg">
-			{posts.map((post) => (
+		<section className="flex w-full flex-col items-stretch gap-10">
+			{posts.length > 0 && (
+				<FirstPostPreview
+					title={posts[0].title}
+					date={posts[0].publishedAt}
+					author={{
+						name: posts[0].author.name,
+					}}
+					slug={posts[0].slug}
+					commentCount={posts[0].comments?.totalDocuments || 0}
+				/>
+			)}
+			{posts.slice(1).map((post) => (
 				<MinimalPostPreview
 					key={post.id}
 					title={post.title}
@@ -18,7 +30,7 @@ export const MinimalPosts = ({ posts }: Props) => {
 						name: post.author.name,
 					}}
 					slug={post.slug}
-					commentCount={post.comments?.totalDocuments}
+					commentCount={post.comments?.totalDocuments || 0}
 				/>
 			))}
 		</section>

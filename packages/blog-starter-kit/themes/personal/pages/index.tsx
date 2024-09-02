@@ -91,7 +91,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 						}}
 					/>
 				</Head>
-				<Container className="container mx-auto flex flex-col items-stretch gap-10 px-5 py-10">
+				<Container className="container mx-auto flex flex-col items-stretch gap-12 px-5 py-12">
 					<PersonalHeader />
 					{posts.length > 0 && <MinimalPosts context="home" posts={posts} />}
 					{!loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
