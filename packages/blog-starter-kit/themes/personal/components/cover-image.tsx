@@ -16,7 +16,7 @@ export const CoverImage = ({ title, src, slug, priority = false }: Props) => {
 			<Image
 				src={src}
 				alt={`Cover Image for ${title}`}
-				className="scale-110 rounded-lg"
+				className="rounded-lg md:scale-110"
 				fill
 				unoptimized
 				priority={priority}

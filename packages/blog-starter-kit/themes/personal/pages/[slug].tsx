@@ -127,7 +127,7 @@ const Post = ({ publication, post }: PostProps) => {
 				/>
 				<style dangerouslySetInnerHTML={{ __html: highlightJsMonokaiTheme }}></style>
 			</Head>
-			<div className="flex w-full flex-col gap-5">
+			<div className="flex w-full min-w-0 flex-col gap-5">
 				<h1 className="text-balance text-center text-4xl font-semibold leading-tight text-stone-950 dark:text-stone-50">
 					{post.title}
 				</h1>
@@ -141,7 +141,10 @@ const Post = ({ publication, post }: PostProps) => {
 						<CoverImage title={post.title} priority={true} src={coverImageSrc} />
 					</div>
 				)}
-				<MarkdownToHtml contentMarkdown={post.content.markdown} />
+				<div className="w-full min-w-0 max-w-full">
+					<MarkdownToHtml contentMarkdown={post.content.markdown} />
+				</div>
+
 				{(post.tags ?? []).length > 0 && (
 					<div className="flex w-full flex-row justify-center gap-4">{tagsList}</div>
 				)}
@@ -172,7 +175,7 @@ export default function PostOrPage(props: Props) {
 			<Layout>
 				<Container className="mx-auto flex flex-col items-stretch gap-12 px-5 py-5 md:py-12">
 					<PersonalHeader />
-					<article className="mx-auto flex max-w-screen-md flex-col items-start gap-10 pb-10">
+					<article className="mx-auto flex w-full min-w-0 max-w-screen-md flex-col items-start gap-10 pb-10">
 						{props.type === 'post' && <Post {...props} />}
 						{props.type === 'page' && <Page {...props} />}
 					</article>

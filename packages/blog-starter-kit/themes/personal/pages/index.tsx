@@ -92,7 +92,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 						}}
 					/>
 				</Head>
-				<Container className="text-balance mx-auto flex flex-col items-stretch gap-12 px-5 py-5 md:py-12">
+				<Container className="mx-auto flex flex-col items-stretch gap-12 text-balance px-5 py-5 md:py-12">
 					<PersonalHeader />
 					<div className="mx-auto min-h-screen w-full max-w-screen-lg">
 						{posts.length > 0 && <MinimalPosts context="home" posts={posts} />}

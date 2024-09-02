@@ -12,7 +12,7 @@ const _MarkdownToHtml = ({ contentMarkdown }: Props) => {
 
 	return (
 		<div
-			className="prose prose-base prose-stone hover:prose-a:underline dark:prose-invert prose-a:no-underline prose-a:text-blue-600 prose-headings:font-normal prose-headings:text-balance mx-auto"
+			className="prose prose-em: md:prose-base prose-stone prose-headings:text-balance hover:prose-a:underline dark:prose-invert prose-a:no-underline prose-a:text-blue-600 prose-headings:font-normal mx-auto break-words"
 			dangerouslySetInnerHTML={{ __html: content }}
 		/>
 	);
