@@ -71,7 +71,7 @@ export const PersonalHeader = () => {
 	return (
 		<header className="mx-auto grid w-full max-w-screen-lg grid-cols-3 items-center gap-5">
 			<div className="col-span-full md:col-span-2">
-				<div className="flex justify-between">
+				<div className="flex flex-row justify-between gap-4">
 					<h1>
 						<Link
 							className="flex flex-row items-center gap-3"
@@ -101,6 +101,9 @@ export const PersonalHeader = () => {
 							</div>
 						</Link>
 					</h1>
+					<div className="block text-stone-600 dark:text-stone-400 md:hidden">
+						<ToggleTheme />
+					</div>
 				</div>
 			</div>
 			<div className="col-span-full flex flex-row items-center justify-center gap-10 border-y border-stone-200 py-5 text-stone-600 dark:border-stone-800 dark:text-stone-400 md:col-span-1 md:justify-end md:border-y-0 md:py-0">
@@ -124,7 +127,9 @@ export const PersonalHeader = () => {
 					>
 						<LinkedinSVG className="h-6 w-6 stroke-current" />
 					</Link>
-					<ToggleTheme />
+					<div className="hidden md:flex">
+						<ToggleTheme />
+					</div>
 				</div>
 			</div>
 		</header>
