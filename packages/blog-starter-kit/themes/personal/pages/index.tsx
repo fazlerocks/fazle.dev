@@ -88,7 +88,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 						}}
 					/>
 				</Head>
-				<Container className="mx-auto flex max-w-screen-md flex-col items-stretch gap-10 px-5 py-10">
+				<Container className="mx-auto flex max-w-screen-lg flex-col items-stretch gap-10 px-5 py-10">
 					<PersonalHeader />
 					{/* {posts.length > 0 && <MinimalPosts context="home" posts={posts} />}
 					{!loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PublicationNavbarItem } from '../generated/graphql';
 import { useAppContext } from './contexts/appContext';
+import { LinkedinSVG, XSVG } from './icons';
 import { ToggleTheme } from './toggle-theme';
 
 type NavbarItemWithUrl = PublicationNavbarItem & { url: string };
@@ -68,38 +69,51 @@ export const PersonalHeader = () => {
 	const navbarItems = publication.preferences.navbarItems.filter(isNavbarItemWithUrl);
 
 	return (
-		<header className="grid grid-cols-2 items-center gap-5">
-			<div className="col-span-full md:col-span-1">
+		<header className="grid grid-cols-3 items-center gap-5">
+			<div className="col-span-full md:col-span-2">
 				<div className="flex justify-between">
 					<h1>
 						<Link
-							className="flex flex-row items-center gap-2 text-lg font-bold leading-tight tracking-tight text-black dark:text-white"
+							className="flex flex-row items-center gap-4"
 							href="/"
 							aria-label={`${publication.author.name}'s blog home page`}
 						>
 							{publication.author.profilePicture && (
 								<Image
-									className="rounded-full"
+									className="rounded-full grayscale hover:grayscale-0 dark:border-stone-300"
 									alt={publication.author.name}
 									src={resizeImage(publication.author.profilePicture, {
 										w: 128,
 										h: 128,
 										c: 'face',
 									})}
-									width={64}
-									height={64}
+									width={56}
+									height={56}
 								/>
 							)}
-							{publication.title}
+							<div className="flex flex-col leading-snug">
+								<span className="text-xl font-semibold text-stone-950 dark:text-stone-50">
+									{publication.title}
+								</span>
+								<span className="font-sans font-normal text-stone-600 dark:text-stone-400">
+									Co-founder, Hashnode &middot; Web experience architect
+								</span>
+							</div>
 						</Link>
 					</h1>
 					<ToggleTheme className="md:hidden" />
 				</div>
 			</div>
-			<div className="col-span-full flex flex-row items-center justify-between gap-4 md:col-span-1 md:justify-end">
-				<nav>
+			<div className="col-span-full flex flex-row items-center justify-between gap-4 text-stone-600 dark:text-stone-400 md:col-span-1 md:justify-end">
+				{/* <nav>
 					<NavList items={navbarItems} />
-				</nav>
+				</nav> */}
+				<Link href="https://x.com/fazlerocks" target="_Blank" rel="noopenner">
+					<XSVG className="h-6 w-6 stroke-current" />
+				</Link>
+				<Link href="https://linkedin.com/fazlerocks" target="_Blank" rel="noopenner">
+					<LinkedinSVG className="h-6 w-6 stroke-current" />
+				</Link>
 				<ToggleTheme className="hidden md:block" />
 			</div>
 		</header>
