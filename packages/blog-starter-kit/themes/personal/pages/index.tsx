@@ -11,6 +11,7 @@ import { Layout } from '../components/layout';
 import { MinimalPosts } from '../components/minimal-posts';
 import { PersonalHeader } from '../components/personal-theme-header';
 
+import { Footer } from '../components/footer';
 import {
 	MorePostsByPublicationDocument,
 	MorePostsByPublicationQuery,
@@ -93,7 +94,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 				</Head>
 				<Container className="text-balance mx-auto flex flex-col items-stretch gap-12 px-5 py-5 md:py-12">
 					<PersonalHeader />
-					<div className="mx-auto w-full max-w-screen-lg">
+					<div className="mx-auto min-h-screen w-full max-w-screen-lg">
 						{posts.length > 0 && <MinimalPosts context="home" posts={posts} />}
 						{!loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
 							<button onClick={loadMore}>Load more</button>
@@ -103,7 +104,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 						)}
 					</div>
 
-					{/* <Footer /> */}
+					<Footer />
 				</Container>
 			</Layout>
 		</AppProvider>
