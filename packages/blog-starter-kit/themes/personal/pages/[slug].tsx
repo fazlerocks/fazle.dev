@@ -128,25 +128,27 @@ const Post = ({ publication, post }: PostProps) => {
 				/>
 				<style dangerouslySetInnerHTML={{ __html: highlightJsMonokaiTheme }}></style>
 			</Head>
-			<h1 className="text-4xl font-bold leading-tight tracking-tight text-black dark:text-white">
-				{post.title}
-			</h1>
-			<div className="flex tracking-tight gap-2 text-neutral-600 dark:text-neutral-400">
-				<DateFormatter dateString={post.publishedAt} />
-				{'•'}
-				<span>{post.readTimeInMinutes} min read</span>
+			<div className="flex w-full flex-col gap-5">
+				<h1 className="text-balance text-center text-4xl font-semibold leading-tight text-stone-950 dark:text-stone-50">
+					{post.title}
+				</h1>
+				<div className="font-heading flex w-full flex-row items-center justify-center gap-2 text-center text-sm text-stone-600 dark:text-stone-400">
+					<DateFormatter dateString={post.publishedAt} />
+					{'•'}
+					<span>{post.readTimeInMinutes} min read</span>
+				</div>
+				{!!coverImageSrc && (
+					<div className="my-10 w-full">
+						<CoverImage title={post.title} priority={true} src={coverImageSrc} />
+					</div>
+				)}
+				<MarkdownToHtml contentMarkdown={post.content.markdown} />
+				{(post.tags ?? []).length > 0 && (
+					<div className="mx-auto w-full text-slate-600 dark:text-neutral-300 md:max-w-screen-md">
+						<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
+					</div>
+				)}
 			</div>
-			{!!coverImageSrc && (
-				<div className="w-full">
-					<CoverImage title={post.title} priority={true} src={coverImageSrc} />
-				</div>
-			)}
-			<MarkdownToHtml contentMarkdown={post.content.markdown} />
-			{(post.tags ?? []).length > 0 && (
-				<div className="mx-auto w-full text-slate-600 dark:text-neutral-300 md:max-w-screen-md">
-					<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
-				</div>
-			)}
 		</>
 	);
 };
@@ -171,9 +173,9 @@ export default function PostOrPage(props: Props) {
 	return (
 		<AppProvider publication={publication} post={maybePost} page={maybePage}>
 			<Layout>
-				<Container className="mx-auto flex max-w-3xl flex-col items-stretch gap-10 px-5 py-10">
+				<Container className="mx-auto flex flex-col items-stretch gap-12 px-5 py-5 md:py-12">
 					<PersonalHeader />
-					<article className="flex flex-col items-start gap-10 pb-10">
+					<article className="mx-auto flex max-w-screen-md flex-col items-start gap-10 pb-10">
 						{props.type === 'post' && <Post {...props} />}
 						{props.type === 'page' && <Page {...props} />}
 					</article>
