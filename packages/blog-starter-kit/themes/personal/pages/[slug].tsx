@@ -50,14 +50,13 @@ const Post = ({ publication, post }: PostProps) => {
 	const [canLoadEmbeds, setCanLoadEmbeds] = useState(false);
 	useEmbeds({ enabled: canLoadEmbeds });
 	const tagsList = (post.tags ?? []).map((tag) => (
-		<li key={tag.id}>
-			<Link
-				href={`/tag/${tag.slug}`}
-				className="block rounded-full border px-2 py-1 font-medium hover:bg-slate-50 dark:border-neutral-800 dark:hover:bg-neutral-800 md:px-4"
-			>
-				#{tag.slug}
-			</Link>
-		</li>
+		<Link
+			key={tag.id}
+			href={`/tag/${tag.slug}`}
+			className="text-stone-600 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200"
+		>
+			#{tag.slug}
+		</Link>
 	));
 
 	if (post.hasLatexInPost) {
@@ -144,9 +143,7 @@ const Post = ({ publication, post }: PostProps) => {
 				)}
 				<MarkdownToHtml contentMarkdown={post.content.markdown} />
 				{(post.tags ?? []).length > 0 && (
-					<div className="mx-auto w-full text-slate-600 dark:text-neutral-300 md:max-w-screen-md">
-						<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
-					</div>
+					<div className="flex w-full flex-row justify-center gap-4">{tagsList}</div>
 				)}
 			</div>
 		</>

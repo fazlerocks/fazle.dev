@@ -4,7 +4,7 @@ export const Footer = () => {
 	const { publication } = useAppContext();
 
 	return (
-		<footer className="border-t pt-10 text-sm text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
+		<footer className="border-t pt-10 text-sm text-stone-500 dark:border-stone-800 dark:text-stone-400">
 			&copy; {new Date().getFullYear()} {publication.title}
 		</footer>
 	);

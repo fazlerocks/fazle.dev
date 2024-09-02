@@ -28,7 +28,7 @@ const MoreDropdown = ({ items }: { items: NavbarItemWithUrl[] }) => (
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Portal>
 				<DropdownMenu.Content
-					className="flex flex-col items-stretch gap-1 rounded-lg border bg-white text-xs font-semibold uppercase tracking-tight text-neutral-600 shadow-xl dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300"
+					className="flex flex-col items-stretch gap-1 rounded-lg border bg-white text-xs font-semibold uppercase tracking-tight text-stone-600 shadow-xl dark:border-stone-800 dark:bg-stone-900 dark:text-stone-300"
 					sideOffset={5}
 					align="end"
 				>
