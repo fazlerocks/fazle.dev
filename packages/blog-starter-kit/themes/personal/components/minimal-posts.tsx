@@ -9,7 +9,7 @@ type Props = {
 
 export const MinimalPosts = ({ posts }: Props) => {
 	return (
-		<section className="flex w-full flex-col items-stretch gap-12">
+		<section className="text-balance flex w-full flex-col items-stretch gap-12">
 			{posts.length > 0 && (
 				<FirstPostPreview
 					title={posts[0].title}
@@ -32,6 +32,7 @@ export const MinimalPosts = ({ posts }: Props) => {
 					}}
 					slug={post.slug}
 					commentCount={post.comments?.totalDocuments || 0}
+					brief={posts[0].brief}
 				/>
 			))}
 		</section>

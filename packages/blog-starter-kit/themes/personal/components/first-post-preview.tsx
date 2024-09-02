@@ -17,17 +17,12 @@ export const FirstPostPreview = ({ title, date, slug, commentCount, brief }: Pro
 	const postURL = `/${slug}`;
 
 	return (
-		<article className="grid grid-cols-2 items-center gap-10">
-			<div className="col-span-1">
-				<h2 className="text-4xl font-medium leading-tight text-stone-950">
+		<article className="ne-50 grid grid-cols-2 items-center gap-10 rounded-lg bg-white p-12 shadow transition-colors duration-100 dark:bg-stone-800">
+			<div className="col-span-1 flex flex-col gap-2">
+				<h2 className="text-2xl font-semibold text-stone-950 dark:text-stone-50">
 					<Link href={postURL}>{title}</Link>
 				</h2>
-			</div>
-			<div className="col-span-1 flex flex-col gap-2">
-				<Link href={postURL} className="text-base leading-snug text-stone-600">
-					{brief}
-				</Link>
-				<p className="font-heading flex flex-row items-center gap-2 text-sm text-stone-500">
+				<p className="font-heading flex flex-row items-center gap-2 text-sm text-stone-600 dark:text-stone-400">
 					<Link href={postURL}>
 						<DateFormatter dateString={date} />
 					</Link>
@@ -38,6 +33,11 @@ export const FirstPostPreview = ({ title, date, slug, commentCount, brief }: Pro
 						</>
 					)}
 				</p>
+			</div>
+			<div className="col-span-1 flex flex-col gap-2">
+				<Link href={postURL} className="text-base leading-snug text-stone-600 dark:text-stone-400">
+					{brief}
+				</Link>
 			</div>
 		</article>
 	);

@@ -108,10 +108,20 @@ export const PersonalHeader = () => {
 				{/* <nav>
 					<NavList items={navbarItems} />
 				</nav> */}
-				<Link href="https://x.com/fazlerocks" target="_Blank" rel="noopenner">
+				<Link
+					href="https://x.com/fazlerocks"
+					aria-label="Follow on X"
+					target="_Blank"
+					rel="noopenner"
+				>
 					<XSVG className="h-6 w-6 stroke-current" />
 				</Link>
-				<Link href="https://linkedin.com/fazlerocks" target="_Blank" rel="noopenner">
+				<Link
+					href="https://linkedin.com/fazlerocks"
+					aria-label="Follow on Linkedin"
+					target="_Blank"
+					rel="noopenner"
+				>
 					<LinkedinSVG className="h-6 w-6 stroke-current" />
 				</Link>
 				<ToggleTheme className="hidden md:block" />
