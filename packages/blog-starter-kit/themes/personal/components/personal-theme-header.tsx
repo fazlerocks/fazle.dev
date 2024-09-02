@@ -69,7 +69,7 @@ export const PersonalHeader = () => {
 	const navbarItems = publication.preferences.navbarItems.filter(isNavbarItemWithUrl);
 
 	return (
-		<header className="mx-auto grid max-w-screen-lg grid-cols-3 items-center gap-5">
+		<header className="mx-auto grid w-full max-w-screen-lg grid-cols-3 items-center gap-5">
 			<div className="col-span-full md:col-span-2">
 				<div className="flex justify-between">
 					<h1>
